@@ -64,7 +64,7 @@ async def generate_session(bot: Client, msg: Message, telethon=False, old_pyro: 
         ty += " Bot"
     await msg.reply(f"Starting {ty} Session Generation...")
     user_id = msg.chat.id
-    api_id_msg = await bot.ask(user_id, 'Please send your `API_ID` Get It From a httpshttps://my.telegram.org/', filters=filters.text)
+    api_id_msg = await bot.ask(user_id, 'Please send your `API_ID` Get It From a https://my.telegram.org/', filters=filters.text)
     if await cancelled(api_id_msg):
         return
     try:
@@ -72,7 +72,7 @@ async def generate_session(bot: Client, msg: Message, telethon=False, old_pyro: 
     except ValueError:
         await api_id_msg.reply('Not a valid API_ID (which must be an integer). Please start generating session again.', quote=True, reply_markup=InlineKeyboardMarkup(Data.generate_button))
         return
-    api_hash_msg = await bot.ask(user_id, 'Please send your `API_HASH`Get It From a httpshttps://my.telegram.org/', filters=filters.text)
+    api_hash_msg = await bot.ask(user_id, 'Please send your `API_HASH`Get It From a https://my.telegram.org/', filters=filters.text)
     if await cancelled(api_hash_msg):
         return
     api_hash = api_hash_msg.text
